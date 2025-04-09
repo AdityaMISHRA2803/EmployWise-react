@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.hero-container {
+    flex: 0 0 95vh;
+    width: 100%;
+    background-color: lightblue;
+}
+
+.footer-container {
+    flex: 1;
+    width: 100%;
+    background-color: lightgray;
+}
