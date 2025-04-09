@@ -1,17 +1,128 @@
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .hero-container {
-    flex: 0 0 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 97vh;
     width: 100%;
-    background-color: lightblue;
 }
 
 .footer-container {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     background-color: lightgray;
+}
+
+.footer-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.8rem;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #D4C9BE;
+    border-radius: 50%;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 40%;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0.095rem solid #030303;
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+}
+
+.signin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login form {
+    width: 100%;
+    color: rgb(40, 39, 39);
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.signin {
+    font-weight: 500;
+    font-size: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.login label {
+    margin-bottom: 0.2rem;
+}
+
+.login input {
+    border: 0.095rem solid rgb(160, 156, 156);
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    padding: 1rem;
+}
+
+.login button {
+    border: none;
+    padding: 0.7rem 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    background-color: rgb(190, 190, 190);
+    color: white;
+    border-radius: 2rem;
+}
+
+.login button:hover{
+    cursor: pointer;
+    background-color: rgb(179, 178, 178);
+}
+
+.terms {
+    font-size: 0.95rem;
+    color: rgb(40, 39, 39);
+}
+
+.terms span {
+    text-decoration: underline;
+    text-underline-offset: 0.1rem;
+}
+
+.terms span:hover {
+    cursor: pointer;
+}
+
+.login-container .line {
+    border: 0.1rem solid rgb(160, 156, 156);
+    border-radius: .1rem;
+    width: 50%;
 }
