@@ -1,12 +1,31 @@
 import React from "react";
-import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import "./Users.css";
 
 const Users = () => {
   const [search, setSearch] = useState("");
+  const [users, setUsers] = useState([]);
   const [totalPages, setTotalPages] = useState(2);
   const [currPage, setCurrPage] = useState(1);
+  
+  useEffect(()=>{
+    const fetchData = async ()=>{
+
+      try {
+        const response = await axios.get(`https://reqres.in/api/users?page=${currPage}`);
+        setTotalPages(response.data.total_pages);
+        setUsers(response.data.data);
+
+      } catch (error){
+        console.log("Error: ", error);
+        alert("Cannot Fetch Users!");
+      }
+    }
+
+    fetchData();
+  },[currPage]);
 
   return (
     <div className="container">
@@ -32,20 +51,16 @@ const Users = () => {
         {/* ----------------------------------List Of Users------------------------------ */}
         <div className="users-container">
           <div className="users-box">
-            <Card
-              id="7"
-              email="michael.lawson@reqres.in"
-              firstName="Michael"
-              lastName="Lawson"
-              img="https://reqres.in/img/faces/7-image.jpg"
-            />
-            <Card
-              id="7"
-              email="michael.lawson@reqres.in"
-              firstName="Michael"
-              lastName="Lawson"
-              img="https://reqres.in/img/faces/7-image.jpg"
-            />
+            {users.map(user => (
+              <Card 
+                key={user.id}
+                id={user.id}
+                email={user.email}
+                firstName={user.first_name}
+                lastName={user.last_name}
+                img={user.avatar}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -53,8 +68,13 @@ const Users = () => {
       {/* ---------------------------------------------Pagination---------------------------------------- */}
       <div className="pagination">
           <p>Pages: </p>
-          <button>1</button>
-          <button>2</button>
+          {
+            Array.from({length: totalPages}, (_, i)=>(
+              <button key={i+1} onClick={()=> setCurrPage(i+1)}>
+                {i+1}
+              </button>
+            ))
+          } 
           <p>Showing Page {currPage} of {totalPages}</p>
       </div>
 
