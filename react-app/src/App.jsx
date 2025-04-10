@@ -1,11 +1,9 @@
-import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Login from './pages/Login'
-import Users from './pages/Users'
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Users from "./pages/Users";
+import "./App.css";
 
 function App() {
-
   return (
     <>
       <Routes>
@@ -13,7 +11,7 @@ function App() {
         <Route path="/users" element={<Users />} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
