@@ -1,7 +1,41 @@
-import React from "react";
-import "./Login.css";
+import React from "react"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import axios from "axios"
+import "./Login.css"
 
 const Login = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const userInfo = {
+      email: email,
+      password: password,
+    };
+
+    console.log(userInfo);
+
+    try {
+      const response = await axios.post("https://reqres.in/api/login", userInfo)
+      console.log("Login Successfull!");
+
+      // Storing the token in session storage
+      const token = response.data.token;
+      sessionStorage.setItem("token", token);
+      console.log("Stored the token in session storage");
+
+      navigate("/users")
+
+    }catch (error){
+      console.log("Error: ", error)
+      alert("Login Failed!")
+    }
+  }
+
   return (
     <div className="container">
         
@@ -13,12 +47,24 @@ const Login = () => {
               <div className="signin-container">
                 <div className="signin">Sign in</div>
 
-                <form>
+                <form onSubmit={handleSubmit}>
                   <label htmlFor="email">Email</label>
-                  <input type="text" id="email" required />
+                  <input 
+                    type="text" 
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={(event)=>{setEmail(event.target.value)}} 
+                    required />
                   
                   <label htmlFor="password">Your Password</label>
-                  <input type="password" id="password" required />
+                  <input 
+                    type="password" 
+                    id="password"
+                    name="password"
+                    value={password}
+                    onChange={(event)=>{setPassword(event.target.value)}} 
+                    required />
 
                   <button type="submit">Log In</button>
 
