@@ -1,0 +1,61 @@
+.avatar-img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 7.5rem;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    width: 20rem;
+    height: 9rem;
+    background-color: rgb(237, 234, 234);
+    gap: 1rem;
+    border: 0.095rem solid rgb(160, 156, 156);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.first-name {
+    margin-bottom: 0.3rem;
+}
+
+.first-name span {
+    font-weight: 500;
+}
+
+.last-name span {
+    font-weight: 500;
+}
+
+.buttons {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.buttons button {
+    border: none;
+    padding: 0.4rem 0.7rem;
+    font-size: 1rem;
+    background-color: rgb(167, 166, 166);
+    color: white;
+    border-radius: 0.7rem;
+}
+
+.buttons button:hover {
+    cursor: pointer;
+    background-color: rgb(148, 147, 147);
+}
+
