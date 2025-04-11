@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import Card from "../components/Card";
 import EditUser from "../components/EditUser";
+import DeleteUser from "../components/DeleteUser";
 import "./Users.css";
 
 const Users = () => {
@@ -11,7 +12,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const [totalPages, setTotalPages] = useState(2);
   const [currPage, setCurrPage] = useState(1);
-  const { showEditForm } = useContext(UserContext);
+  const { showEditForm, showDeleteForm } = useContext(UserContext);
   
   useEffect(()=>{
     const fetchData = async ()=>{
@@ -70,6 +71,7 @@ const Users = () => {
 
       {/* ---------------------------------------------Pop Up---------------------------------------- */}
       { showEditForm && <EditUser /> } 
+      { showDeleteForm && <DeleteUser /> }
       
       {/* ---------------------------------------------Pagination---------------------------------------- */}
       <div className="pagination">

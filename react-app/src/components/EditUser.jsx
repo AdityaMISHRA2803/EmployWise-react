@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import "./EditUser.css";
+import "./Card.css";
 
 const EditUser = () => {
   // In selectedUser we have the actual userInfo 
@@ -30,8 +31,8 @@ const EditUser = () => {
   }
 
   return (
-    <div className="edit-user-container">
-        <div className="edit-user-box">
+    <div className="popup-container">
+        <div className="popup-box">
           <h1>Edit User</h1>
 
           <form onSubmit={handleSubmit}>

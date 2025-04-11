@@ -4,7 +4,7 @@ import { UserContext } from "../context/UserContext";
 import "./Card.css";
 
 const Card = ({id, email, firstName, lastName, img}) => {
-  const { setShowEditForm, setSelectedUser } = useContext(UserContext);
+  const { setShowEditForm, setSelectedUser, setShowDeleteForm } = useContext(UserContext);
 
   const handleEdit = (event)=>{
     setShowEditForm(true);
@@ -13,6 +13,15 @@ const Card = ({id, email, firstName, lastName, img}) => {
       email: email,
       firstName: firstName,
       lastName: lastName,
+    }
+    setSelectedUser(userInfo);
+  };
+
+  const handleDelete = (event)=>{
+    setShowDeleteForm(true);
+
+    const userInfo = {
+      id: id,
     }
     setSelectedUser(userInfo);
   };
@@ -29,7 +38,7 @@ const Card = ({id, email, firstName, lastName, img}) => {
         
         <div className="buttons">
           <button onClick={handleEdit}>Edit</button>
-          <button>Delete</button>
+          <button onClick={handleDelete}>Delete</button>
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-.edit-user-container {
+.popup-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,7 +9,7 @@
     backdrop-filter: blur(.2rem);
 }
 
-.edit-user-box {
+.popup-box {
     width: 36vw;
     background-color: rgb(247, 242, 242);
     display: flex;
@@ -22,11 +22,11 @@
     padding-bottom: 0.3rem;
 }
 
-.edit-user-box h1 {
+.popup-box h1 {
     margin-bottom: 1.2rem;
 }
 
-.edit-user-box form {
+.popup-box form {
     width: 100%;
     color: rgb(40, 39, 39);
     display: flex;
@@ -36,7 +36,7 @@
     margin-bottom: 1rem;
 }
 
-.edit-user-box input {
+.popup-box input {
     background-color: rgb(252, 249, 249);
     border: 0.095rem solid rgb(160, 156, 156);
     height: 2.5rem;
@@ -46,6 +46,6 @@
     padding: 1rem;
 }
 
-.edit-user-box label {
+.popup-box label {
     margin-bottom: 0.2rem;
 }
