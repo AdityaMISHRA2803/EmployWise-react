@@ -50,11 +50,12 @@ const Users = () => {
         {/* --------------------------------Search and Title------------------------------ */}
         <div className="search-container">
           <h1>Users Dashboard</h1>
-          <div>
+          <div className="search-box">
             <input
               type="text"
               id="search"
               name="search"
+              placeholder="search by first name.."
               value={search}
               onChange={(event) => {
                 setSearch(event.target.value);

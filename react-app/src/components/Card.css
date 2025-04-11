@@ -60,3 +60,25 @@
     background-color: rgb(148, 147, 147);
 }
 
+@media (max-width: 387px) {
+    .avatar-img {
+        height: 6rem;
+        width: 6rem;
+    }
+
+    .info {
+        font-size: 0.9rem;
+    }
+
+    .buttons button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.9rem;
+        background-color: rgb(167, 166, 166);
+        color: white;
+        border-radius: 0.7rem;
+    }
+
+    .card-container {
+        padding: 0.5rem;
+    }
+}

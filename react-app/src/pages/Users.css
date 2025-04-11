@@ -75,3 +75,21 @@
     cursor: pointer;
     background-color: rgb(215, 212, 212);
 }
+
+@media (max-width: 492px) {
+    .search-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .search-box {
+        display: flex;
+        flex-direction: column;
+        width: 20rem;
+    }
+
+    .search-container button {
+        display: none;
+    }
+
+}
+

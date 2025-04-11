@@ -49,3 +49,21 @@
 .popup-box label {
     margin-bottom: 0.2rem;
 }
+
+@media (max-width: 757px) {
+    .popup-box {
+        width: 50vw;
+    }
+}
+
+@media (max-width: 511px) {
+    .popup-box {
+        width: 70vw;
+    }
+}
+
+@media (max-width: 387px) {
+    .popup-box {
+        width: 90vw;
+    }
+}
