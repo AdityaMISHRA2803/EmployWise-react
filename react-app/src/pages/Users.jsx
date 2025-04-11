@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 import EditUser from "../components/EditUser";
 import DeleteUser from "../components/DeleteUser";
@@ -12,14 +13,17 @@ const Users = () => {
   const [totalPages, setTotalPages] = useState(2);
   const [currPage, setCurrPage] = useState(1);
   const { users, setUsers, showEditForm, showDeleteForm } = useContext(UserContext);
+  const navigate = useNavigate();
   
-  const filteredUsers = users.filter((user) =>
-    user.first_name.toLowerCase().includes(search.toLowerCase())
-  );
+  // Token Checking Logic
+  const token = sessionStorage.getItem("token");
+  if (!token) {
+    navigate("/");
+  }
 
+  // Fetch Users Data
   useEffect(()=>{
     const fetchData = async ()=>{
-
       try {
         const response = await axios.get(`https://reqres.in/api/users?page=${currPage}`);
         setTotalPages(response.data.total_pages);
@@ -33,6 +37,11 @@ const Users = () => {
 
     fetchData();
   },[currPage]);
+
+  // Filter users on basis of search
+  const filteredUsers = users.filter((user) =>
+    user.first_name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="container">
