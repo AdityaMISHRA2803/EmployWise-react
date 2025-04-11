@@ -9,11 +9,14 @@ import "./Users.css";
 
 const Users = () => {
   const [search, setSearch] = useState("");
-  const [users, setUsers] = useState([]);
   const [totalPages, setTotalPages] = useState(2);
   const [currPage, setCurrPage] = useState(1);
-  const { showEditForm, showDeleteForm } = useContext(UserContext);
+  const { users, setUsers, showEditForm, showDeleteForm } = useContext(UserContext);
   
+  const filteredUsers = users.filter((user) =>
+    user.first_name.toLowerCase().includes(search.toLowerCase())
+  );
+
   useEffect(()=>{
     const fetchData = async ()=>{
 
@@ -48,14 +51,14 @@ const Users = () => {
                 setSearch(event.target.value);
               }}
             />
-            <button>Search</button>
+            <button>Search By First Name</button>
           </div>
         </div>
 
         {/* ----------------------------------List Of Users------------------------------ */}
         <div className="users-container">
           <div className="users-box">
-            {users.map(user => (
+            {filteredUsers.map(user => (
               <Card 
                 key={user.id}
                 id={user.id}

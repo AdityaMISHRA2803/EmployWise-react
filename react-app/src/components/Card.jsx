@@ -10,6 +10,7 @@ const Card = ({id, email, firstName, lastName, img}) => {
     setShowEditForm(true);
     
     const userInfo = {
+      id: id,
       email: email,
       firstName: firstName,
       lastName: lastName,
@@ -22,6 +23,9 @@ const Card = ({id, email, firstName, lastName, img}) => {
 
     const userInfo = {
       id: id,
+      email: email,
+      firstName: firstName,
+      lastName: lastName,
     }
     setSelectedUser(userInfo);
   };

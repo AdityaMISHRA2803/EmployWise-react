@@ -9,6 +9,7 @@ export const UserProvider = ({ children }) => {
     const [showDeleteForm, setShowDeleteForm ] = useState(false);
     
     const [selectedUser, setSelectedUser ] = useState(null);
+    const [users, setUsers] = useState([]);
 
     return(
         <UserContext.Provider value={{
@@ -17,7 +18,9 @@ export const UserProvider = ({ children }) => {
             selectedUser,
             setSelectedUser,
             showDeleteForm,
-            setShowDeleteForm
+            setShowDeleteForm,
+            users,
+            setUsers
         }}>
             {children}
         </UserContext.Provider>

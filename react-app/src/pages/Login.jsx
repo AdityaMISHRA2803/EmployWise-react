@@ -12,6 +12,13 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // Perform E-Mail Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;    
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
     const userInfo = {
       email: email,
       password: password,
