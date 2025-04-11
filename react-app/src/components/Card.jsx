@@ -1,7 +1,22 @@
 import React from "react";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 import "./Card.css";
 
 const Card = ({id, email, firstName, lastName, img}) => {
+  const { setShowEditForm, setSelectedUser } = useContext(UserContext);
+
+  const handleEdit = (event)=>{
+    setShowEditForm(true);
+    
+    const userInfo = {
+      email: email,
+      firstName: firstName,
+      lastName: lastName,
+    }
+    setSelectedUser(userInfo);
+  };
+
   return (
     <div className="card-container">
       <div className="avatar">
@@ -13,7 +28,7 @@ const Card = ({id, email, firstName, lastName, img}) => {
         <div className="last-name"><span>Last Name: </span>{lastName}</div>
         
         <div className="buttons">
-          <button>Edit</button>
+          <button onClick={handleEdit}>Edit</button>
           <button>Delete</button>
         </div>
       </div>

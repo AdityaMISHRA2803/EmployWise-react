@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../context/UserContext";
 import Card from "../components/Card";
+import EditUser from "../components/EditUser";
 import "./Users.css";
 
 const Users = () => {
@@ -9,6 +11,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const [totalPages, setTotalPages] = useState(2);
   const [currPage, setCurrPage] = useState(1);
+  const { showEditForm } = useContext(UserContext);
   
   useEffect(()=>{
     const fetchData = async ()=>{
@@ -64,6 +67,9 @@ const Users = () => {
           </div>
         </div>
       </div>
+
+      {/* ---------------------------------------------Pop Up---------------------------------------- */}
+      { showEditForm && <EditUser /> } 
       
       {/* ---------------------------------------------Pagination---------------------------------------- */}
       <div className="pagination">
