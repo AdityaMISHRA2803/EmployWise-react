@@ -1,5 +1,9 @@
 # EmployWise-react
 
+## Deployment
+The site is hosted on `vercel` and you can visit it here: https://employ-wise-react.vercel.app/
+
+## Running the project locally
 Created by using node `v20.18.0`. Make sure you have `NodeJS` installed. To run the project locally follow the given instructions:<br>
 
 Clone the project
