@@ -8,8 +8,8 @@ function App() {
   return (
     <UserProvider>
       <Routes>
-        <Route path="/EmployWise-react/" element={<Login />} />
-        <Route path="/EmployWise-react/users" element={<Users />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/users" element={<Users />} />
       </Routes>
     </UserProvider>
   );
